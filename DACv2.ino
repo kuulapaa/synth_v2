@@ -6,24 +6,11 @@
 // Valittavissa sini, kolmio, kantti ja saha!
 // DAC muuntimen output yhdistetty lediin ja ledi kammiossa (mustan kutistemuovin sisällä) valovastuksien kanssa. -> Valomäärän mukaan muuttuva amplipudi
 
-// Valkoinen = INPUT
-// Punainen = OUTPUT
-
-// Vaatii toimiakseen 9-12V DC, siis Arduinoon kiinni. USB voi olla samaan aikaan kiinni, ei haittaa
-
 // OCR0A -> "Nopeus" -> 1-255
 // TCCR0B -> Prescaler "Karkeampi nopeudensäätö" -> 0x03 - 0x05
 // DAC = 10bit (overkill)
 // Pitäisi näillä esiasetuksilla tuottaa jo jonkinlaista phaser-efektiä.
 
-// Generaatiot tapahtuu keskeytysfunktiossa ISR(TIMER0_COMPA_vect) joida varmaan pystyy optimoimaan, mutta tuo oli parasta mihin itse kykenin...
-// summing on kahden eri generaation summa eli ikään kuin mudulaatio, en tiedä toimiiko. Varmaan jänniä ääniä saa aikaan, mutta ei hyviä. Ei taida löytyä omaa säätöä edes sille moduloivalle vielä.
-
-// Keskimmäiset potikat tekevät jotain, volume ja mixaus
-// Reunassa olevat vain yhdistetty ADC-tuloihin, voi käyttää miten lystää (POTR ja POTL)
-// Rotary encoder kytkimellä toimii ja ei toimi, en oikeen jaksanut ihmetellä sitä paremmin
-
-// Load ja Save eivät tee mitään mutta ajatus oli että voi tallentaa "hyvän" setupin EEPROMille.
 
 #include "FastPWMdac.h"
 #include "SSD1306Ascii.h"
